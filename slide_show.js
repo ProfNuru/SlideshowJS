@@ -314,6 +314,15 @@ $(document).ready(function(){
         $("#ds-carousel").carousel('pause');
         var slideIndexPrev = $(this).find('.active').index();
         var slideIndexCurrent = $(e.relatedTarget).index();
+
+        // Check first and last slide
+        if(slideIndexCurrent === 0){
+            console.log('first slide')
+            console.log('number of slides:',$(e.relatedTarget).siblings().length + 1)
+        }else if(slideIndexCurrent === $(e.relatedTarget).siblings().length){
+            console.log('last slide')
+        }
+        
         var slideIndexNext = $(e.relatedTarget).next().index();
         previous_uuid = $(this).find('.active').attr('data-uuid');
         current_uuid = $(e.relatedTarget).attr('data-uuid');
